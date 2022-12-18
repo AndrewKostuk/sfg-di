@@ -1,6 +1,6 @@
 package by.bsuir.andrei.sfgdi.controllers;
 
-import by.bsuir.andrei.sfgdi.services.PetService;
+import com.bsuir.andrei.sfgdi.pets.PetService;
 import org.springframework.stereotype.Controller;
 
 @Controller

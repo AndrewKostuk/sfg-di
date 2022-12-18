@@ -4,7 +4,9 @@ import by.bsuir.andrei.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan({"by.bsuir.andrei.sfgdi", "com.bsuir.andrei.sfgdi.pets"})
 @SpringBootApplication
 public class SfgDiApplication {
 

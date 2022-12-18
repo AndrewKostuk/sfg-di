@@ -1,4 +1,4 @@
-package by.bsuir.andrei.sfgdi.services;
+package com.bsuir.andrei.sfgdi.pets;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

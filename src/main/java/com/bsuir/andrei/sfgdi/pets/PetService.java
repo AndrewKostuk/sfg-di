@@ -1,4 +1,4 @@
-package by.bsuir.andrei.sfgdi.services;
+package com.bsuir.andrei.sfgdi.pets;
 
 public interface PetService {
 

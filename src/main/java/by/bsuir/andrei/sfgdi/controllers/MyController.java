@@ -1,11 +1,8 @@
-package guru.springframework.sfgdi.controllers;
+package by.bsuir.andrei.sfgdi.controllers;
 
-import guru.springframework.sfgdi.services.GreetingService;
+import by.bsuir.andrei.sfgdi.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
-/**
- * Created by jt on 12/26/19.
- */
 @Controller
 public class MyController {
 
@@ -15,7 +12,7 @@ public class MyController {
         this.greetingService = greetingService;
     }
 
-    public String sayHello(){
+    public String sayHello() {
         return greetingService.sayGreeting();
     }
 }

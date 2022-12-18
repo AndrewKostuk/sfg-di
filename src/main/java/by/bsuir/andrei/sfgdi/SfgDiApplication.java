@@ -10,7 +10,7 @@ public class SfgDiApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
-        
+
         MyController controller = (MyController) ctx.getBean("myController");
         System.out.println("PRIMARY_________________________");
         System.out.println(controller.sayHello());
@@ -30,6 +30,10 @@ public class SfgDiApplication {
         System.out.println("I18N_______________________");
         I18nController i18nController = (I18nController) ctx.getBean("i18nController");
         System.out.println(i18nController.sayHello());
+
+        System.out.println("THE BEST PET IS____________________________________");
+        PetController petController = (PetController) ctx.getBean("petController");
+        System.out.println(petController.whichPetIsTheBest());
     }
 
 }

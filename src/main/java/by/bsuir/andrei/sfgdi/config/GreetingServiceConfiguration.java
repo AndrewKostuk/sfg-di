@@ -1,5 +1,7 @@
 package by.bsuir.andrei.sfgdi.config;
 
+import by.bsuir.andrei.sfgdi.repositories.EnglishGreetingRepository;
+import by.bsuir.andrei.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import by.bsuir.andrei.sfgdi.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,10 +34,15 @@ public class GreetingServiceConfiguration {
         return new PrimaryGreetingService();
     }
 
+    @Bean
+    public EnglishGreetingRepository englishGreetingRepository() {
+        return new EnglishGreetingRepositoryImpl();
+    }
+
     @Profile("EN")
     @Bean("i18nService")
-    public I18nEnglishGreetingService i18nEnglishGreetingService() {
-        return new I18nEnglishGreetingService();
+    public I18nEnglishGreetingService i18nEnglishGreetingService(EnglishGreetingRepository englishGreetingRepository) {
+        return new I18nEnglishGreetingService(englishGreetingRepository);
     }
 
     @Profile({"ES", "default"})

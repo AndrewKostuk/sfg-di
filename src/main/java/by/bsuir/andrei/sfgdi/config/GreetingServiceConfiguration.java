@@ -5,10 +5,7 @@ import by.bsuir.andrei.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import by.bsuir.andrei.sfgdi.services.*;
 import com.bsuir.andrei.sfgdi.pets.PetService;
 import com.bsuir.andrei.sfgdi.pets.PetServiceFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
 //took off the @Stereotype annotations from my own services just for example.
 //@Configuration is usually used for third-party components.
@@ -18,11 +15,6 @@ public class GreetingServiceConfiguration {
     @Bean
     public PropertyInjectedGreetingService propertyInjectedGreetingService() {
         return new PropertyInjectedGreetingService();
-    }
-
-    @Bean
-    public SetterInjectedGreetingService setterInjectedGreetingService() {
-        return new SetterInjectedGreetingService();
     }
 
     @Bean

@@ -1,6 +1,8 @@
 package by.bsuir.andrei.sfgdi;
 
 import by.bsuir.andrei.sfgdi.controllers.*;
+import by.bsuir.andrei.sfgdi.services.PrototypeBean;
+import by.bsuir.andrei.sfgdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -37,6 +39,18 @@ public class SfgDiApplication {
         System.out.println("THE BEST PET IS____________________________________");
         PetController petController = (PetController) ctx.getBean("petController");
         System.out.println(petController.whichPetIsTheBest());
+
+        System.out.println("\n\n---------------Spring Bean Scope-------------------");
+        SingletonBean singletonBean1 = ctx.getBean(SingletonBean.class);
+        System.out.println(singletonBean1.getScope());
+        SingletonBean singletonBean2 = ctx.getBean(SingletonBean.class);
+        System.out.println(singletonBean2.getScope());
+
+        System.out.println("\n--------PROTOTYPE------------");
+        PrototypeBean prototypeBean1 = ctx.getBean(PrototypeBean.class);
+        System.out.println(prototypeBean1.getScope());
+        PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
+        System.out.println(prototypeBean2.getScope());
     }
 
 }

@@ -1,12 +1,12 @@
 package by.bsuir.andrei.sfgdi;
 
 import by.bsuir.andrei.sfgdi.controllers.*;
+import by.bsuir.andrei.sfgdi.datasource.FakeDataSource;
 import by.bsuir.andrei.sfgdi.services.PrototypeBean;
 import by.bsuir.andrei.sfgdi.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
@@ -51,6 +51,11 @@ public class SfgDiApplication {
         System.out.println(prototypeBean1.getScope());
         PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
         System.out.println(prototypeBean2.getScope());
+
+        FakeDataSource fakeDataSource = (FakeDataSource) ctx.getBean("fakeDataSource");
+        System.out.println(fakeDataSource.getUsername());
+        System.out.println(fakeDataSource.getPassword());
+        System.out.println(fakeDataSource.getJdbcurl());
     }
 
 }

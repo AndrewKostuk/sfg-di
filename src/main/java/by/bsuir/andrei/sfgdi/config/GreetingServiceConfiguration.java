@@ -11,14 +11,13 @@ import org.springframework.context.annotation.*;
 
 //took off the @Stereotype annotations from my own services just for example.
 //@Configuration is usually used for third-party components.
-@PropertySource("classpath:fake.properties")
 @Configuration
 public class GreetingServiceConfiguration {
 
     @Bean
     public FakeDataSource fakeDataSource(@Value("${andrei.username}") String username,
-                                                @Value("${andrei.password}") String password,
-                                                @Value("${andrei.jdbcurl}") String jdbcurl) {
+                                         @Value("${andrei.password}") String password,
+                                         @Value("${andrei.jdbcurl}") String jdbcurl) {
         return new FakeDataSource(username, password, jdbcurl);
     }
 

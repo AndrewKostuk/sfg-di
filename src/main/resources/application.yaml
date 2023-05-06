@@ -1,7 +1,19 @@
 spring:
   profiles:
-    active: dog, ES, dev
+    active:
+      - cat
+      - EN
+      - prod
 andrei:
   username: YAMLUsername
   password: YAMLPassword
   jdbcurl: YAMLJDBCURL
+
+---
+
+spring:
+  profiles: prod
+andrei:
+  username: YAML_PROD_Username
+  password: YAML_PROD_Password
+  jdbcurl: YAML_PROD_JDBCURL

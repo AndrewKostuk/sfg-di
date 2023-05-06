@@ -1,0 +1,4 @@
+andrei:
+  username: YMLdevelopmentUserName
+  password: YMLdevelopmentPassword
+  jdbcurl: YMLdevelopmentURL

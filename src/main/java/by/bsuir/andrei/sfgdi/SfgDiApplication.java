@@ -1,6 +1,7 @@
 package by.bsuir.andrei.sfgdi;
 
 import by.bsuir.andrei.sfgdi.config.AndreiConfiguration;
+import by.bsuir.andrei.sfgdi.config.AndreiConstructorConfiguration;
 import by.bsuir.andrei.sfgdi.controllers.*;
 import by.bsuir.andrei.sfgdi.datasource.FakeDataSource;
 import by.bsuir.andrei.sfgdi.services.PrototypeBean;
@@ -64,6 +65,11 @@ public class SfgDiApplication {
         System.out.println(andreiConfiguration.getUsername());
         System.out.println(andreiConfiguration.getPassword());
         System.out.println(andreiConfiguration.getJdbcurl());
-    }
 
+        System.out.println("\n--------CONSTRUCTOR PROPERTIES BINDING------------");
+        AndreiConstructorConfiguration andreiConstructorConfiguration = ctx.getBean(AndreiConstructorConfiguration.class);
+        System.out.println(andreiConstructorConfiguration.getUsername());
+        System.out.println(andreiConstructorConfiguration.getPassword());
+        System.out.println(andreiConstructorConfiguration.getJdbcurl());
+    }
 }

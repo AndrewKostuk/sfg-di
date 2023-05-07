@@ -6,19 +6,24 @@ import by.bsuir.andrei.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import by.bsuir.andrei.sfgdi.services.*;
 import com.bsuir.andrei.sfgdi.pets.PetService;
 import com.bsuir.andrei.sfgdi.pets.PetServiceFactory;
-import org.springframework.context.annotation.*;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 
 //took off the @Stereotype annotations from my own services just for example.
 //@Configuration is usually used for third-party components.
+@EnableConfigurationProperties(AndreiConstructorConfiguration.class)
 @Configuration
 public class GreetingServiceConfiguration {
 
     @Bean
-    public FakeDataSource fakeDataSource(AndreiConfiguration andreiConfiguration) {
+    public FakeDataSource fakeDataSource(AndreiConstructorConfiguration andreiConstructorConfiguration) {
         return new FakeDataSource(
-                andreiConfiguration.getUsername(),
-                andreiConfiguration.getPassword(),
-                andreiConfiguration.getJdbcurl()
+                andreiConstructorConfiguration.getUsername(),
+                andreiConstructorConfiguration.getPassword(),
+                andreiConstructorConfiguration.getJdbcurl()
         );
     }
 

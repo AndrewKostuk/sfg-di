@@ -6,7 +6,6 @@ import by.bsuir.andrei.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import by.bsuir.andrei.sfgdi.services.*;
 import com.bsuir.andrei.sfgdi.pets.PetService;
 import com.bsuir.andrei.sfgdi.pets.PetServiceFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 //took off the @Stereotype annotations from my own services just for example.
@@ -15,10 +14,12 @@ import org.springframework.context.annotation.*;
 public class GreetingServiceConfiguration {
 
     @Bean
-    public FakeDataSource fakeDataSource(@Value("${andrei.username}") String username,
-                                         @Value("${andrei.password}") String password,
-                                         @Value("${andrei.jdbcurl}") String jdbcurl) {
-        return new FakeDataSource(username, password, jdbcurl);
+    public FakeDataSource fakeDataSource(AndreiConfiguration andreiConfiguration) {
+        return new FakeDataSource(
+                andreiConfiguration.getUsername(),
+                andreiConfiguration.getPassword(),
+                andreiConfiguration.getJdbcurl()
+        );
     }
 
     @Bean

@@ -1,5 +1,6 @@
 package by.bsuir.andrei.sfgdi;
 
+import by.bsuir.andrei.sfgdi.config.AndreiConfiguration;
 import by.bsuir.andrei.sfgdi.controllers.*;
 import by.bsuir.andrei.sfgdi.datasource.FakeDataSource;
 import by.bsuir.andrei.sfgdi.services.PrototypeBean;
@@ -52,10 +53,17 @@ public class SfgDiApplication {
         PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
         System.out.println(prototypeBean2.getScope());
 
+        System.out.println("\n--------FAKE DATA SOURCE------------");
         FakeDataSource fakeDataSource = (FakeDataSource) ctx.getBean("fakeDataSource");
         System.out.println(fakeDataSource.getUsername());
         System.out.println(fakeDataSource.getPassword());
         System.out.println(fakeDataSource.getJdbcurl());
+
+        System.out.println("\n--------PROPERTIES BINDING------------");
+        AndreiConfiguration andreiConfiguration = ctx.getBean(AndreiConfiguration.class);
+        System.out.println(andreiConfiguration.getUsername());
+        System.out.println(andreiConfiguration.getPassword());
+        System.out.println(andreiConfiguration.getJdbcurl());
     }
 
 }
